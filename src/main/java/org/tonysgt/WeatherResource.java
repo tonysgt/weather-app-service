@@ -5,8 +5,8 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
-@Path("/hello")
-public class ExampleResource {
+@Path("/weather")
+public class WeatherResource {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
