@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.tonysgt.clients.open_weather_map.DataClient;
 import org.tonysgt.clients.open_weather_map.GeoClient;
-import org.tonysgt.model.GeoDirectResponse;
+import org.tonysgt.model.geo.GeoDirectResponse;
 import org.tonysgt.model.data.forecast.ForecastResponse;
 
 import java.util.List;
@@ -30,7 +30,7 @@ class GeoClientTest {
 
 
 
-    @ConfigProperty(name ="openWeatherMap.apiKey")
+    @ConfigProperty(name ="openWeatherMap.apikey")
     String apiKey;
 
     @Test
@@ -44,7 +44,7 @@ class GeoClientTest {
 
     @Test
     void testDataForecastApi() {
-        ForecastResponse forecast = dataClient.forecast("51.5073219", "-0.1276474", apiKey);
+        ForecastResponse forecast = dataClient.forecast("51.5073219", "-0.1276474", apiKey, null, null);
         Assertions.assertNotNull(forecast);
         try {
             String forecastResponseAsString = new ObjectMapper().writeValueAsString(forecast);

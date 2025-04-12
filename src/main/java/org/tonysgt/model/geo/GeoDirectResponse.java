@@ -1,4 +1,4 @@
-package org.tonysgt.model;
+package org.tonysgt.model.geo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +22,9 @@ public class GeoDirectResponse {
     @JsonProperty("local_names")
     private Map<String, String> localNames;
     @JsonProperty("lat")
-    private Double lat;
+    private String lat;
     @JsonProperty("lon")
-    private Double lon;
+    private String lon;
     @JsonProperty("country")
     private String country;
     @JsonProperty("state")
@@ -51,22 +51,22 @@ public class GeoDirectResponse {
     }
 
     @JsonProperty("lat")
-    public Double getLat() {
+    public String getLat() {
         return lat;
     }
 
     @JsonProperty("lat")
-    public void setLat(Double lat) {
+    public void setLat(String lat) {
         this.lat = lat;
     }
 
     @JsonProperty("lon")
-    public Double getLon() {
+    public String getLon() {
         return lon;
     }
 
     @JsonProperty("lon")
-    public void setLon(Double lon) {
+    public void setLon(String lon) {
         this.lon = lon;
     }
 

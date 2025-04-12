@@ -18,7 +18,11 @@ public interface DataClient {
 
     @GET
     @Path("/2.5/forecast")
-    ForecastResponse forecast(@QueryParam("lat") String lat, @QueryParam("lon") String lon, @QueryParam("appID") String appID);
+    ForecastResponse forecast(@QueryParam("lat") String lat,
+                              @QueryParam("lon") String lon,
+                              @QueryParam("appID") String appID,
+                              @QueryParam("units") String units,
+                              @QueryParam("lang") String lang);
 
 
 }
