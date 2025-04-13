@@ -1,6 +1,6 @@
 package org.tonysgt.mapper;
 
-import org.tonysgt.model.SearchLocationResponse;
+import org.tonysgt.model.weather.SearchLocationResponse;
 import org.tonysgt.model.geo.GeoDirectResponse;
 
 public class GeoMapper {

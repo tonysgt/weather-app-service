@@ -10,6 +10,8 @@ import static org.hamcrest.CoreMatchers.is;
 class WeatherResourcesTest {
 //    @Test
 //    void testHelloEndpoint() {
+
+
 //        given()
 //                .when().get("/hello")
 //                .then()

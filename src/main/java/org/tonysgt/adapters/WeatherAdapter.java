@@ -1,7 +1,7 @@
 package org.tonysgt.adapters;
 
-import org.tonysgt.model.SearchLocationResponse;
-import org.tonysgt.model.data.forecast.ForecastResponse;
+import org.tonysgt.model.weather.SearchLocationResponse;
+import org.tonysgt.model.weather.forecast.DailyForecastResponse;
 
 import java.util.List;
 
@@ -9,5 +9,5 @@ public interface WeatherAdapter {
 
     List<SearchLocationResponse> searchPlaceResponse(String place);
 
-    ForecastResponse forecast(String lat, String lon);
+    DailyForecastResponse dailyForecast(String lat, String lon);
 }

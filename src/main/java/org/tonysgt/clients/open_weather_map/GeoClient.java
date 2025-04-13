@@ -16,6 +16,6 @@ public interface GeoClient {
 
     @GET
     @Path("/1.0/direct")
-    List<GeoDirectResponse> direct(@QueryParam("q") String q, @QueryParam("limit") Integer lon, @QueryParam("appID") String appID);
+    List<GeoDirectResponse> direct(@QueryParam("q") String q, @QueryParam("limit") Integer limit, @QueryParam("appID") String appID);
 
 }

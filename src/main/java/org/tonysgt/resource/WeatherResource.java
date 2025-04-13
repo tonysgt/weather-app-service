@@ -5,8 +5,8 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
-import org.tonysgt.model.SearchLocationResponse;
-import org.tonysgt.model.data.forecast.ForecastResponse;
+import org.tonysgt.model.weather.SearchLocationResponse;
+import org.tonysgt.model.weather.forecast.DailyForecastResponse;
 
 import java.util.List;
 
@@ -20,5 +20,5 @@ public interface WeatherResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    ForecastResponse forecast(@QueryParam("lat") String lat, @QueryParam("lon") String lon);
+    DailyForecastResponse forecast(@QueryParam("lat") String lat, @QueryParam("lon") String lon);
 }

@@ -1,4 +1,4 @@
-package org.tonysgt.model;
+package org.tonysgt.model.weather;
 
 public class SearchLocationResponse {
 
