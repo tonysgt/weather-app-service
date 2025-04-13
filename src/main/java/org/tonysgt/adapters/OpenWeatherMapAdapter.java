@@ -56,10 +56,8 @@ public class OpenWeatherMapAdapter implements WeatherAdapter{
         }
         catch (WebApplicationException e){
             Response response = e.getResponse();
-            Log.errorf("Status; %s, Message: %s",response.getStatus(), e.getMessage());
-
-            ErrorResponse entity = (ErrorResponse) response.getEntity();
-
+            ErrorResponse entity = response.readEntity(ErrorResponse.class);
+            Log.errorf("Status: %s, Message: %s",response.getStatus(), entity.getMessage());
             throw new WeatherAppApiException(e.getMessage(),response.getStatus(),entity.getMessage(), entity.getParameters());
         }
     }

@@ -1,12 +1,10 @@
 package org.tonysgt.clients.open_weather_map;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import io.smallrye.common.constraint.NotNull;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.QueryParam;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
-import org.tonysgt.model.data.forecast.ForecastResponse;
 import org.tonysgt.model.data.onecall.OneCallResponse;
 
 

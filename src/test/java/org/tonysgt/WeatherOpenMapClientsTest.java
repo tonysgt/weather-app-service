@@ -1,21 +1,18 @@
 package org.tonysgt;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.quarkus.logging.Log;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
-import org.jboss.resteasy.reactive.ClientWebApplicationException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.tonysgt.clients.open_weather_map.DataClient;
 import org.tonysgt.clients.open_weather_map.GeoClient;
 import org.tonysgt.model.data.onecall.OneCallResponse;
 import org.tonysgt.model.geo.GeoDirectResponse;
-import org.tonysgt.model.data.forecast.ForecastResponse;
 
 import java.util.List;
 
