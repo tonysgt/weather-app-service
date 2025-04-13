@@ -6,6 +6,7 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import org.tonysgt.model.weather.SearchLocationResponse;
 import org.tonysgt.model.weather.forecast.DailyForecastResponse;
 import org.tonysgt.services.WeatherService;
@@ -27,7 +28,7 @@ public class WeatherResourceImpl implements WeatherResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public DailyForecastResponse forecast(@QueryParam("lat") String lat, @QueryParam("lon") String lon) {
+    public Response forecast(@QueryParam("lat") String lat, @QueryParam("lon") String lon) {
         return weatherService.forecast(lat, lon);
     }
 }

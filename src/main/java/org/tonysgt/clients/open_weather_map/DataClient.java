@@ -39,12 +39,5 @@ public interface DataClient {
     OneCallResponse oneCall(@QueryParam("lat") @NotNull String lat, @QueryParam("lon") @NotNull String lon, @QueryParam("appID") String appID, @QueryParam("units") String units,
                             @QueryParam("lang") String lang, @QueryParam("exclude") String exclude);
 
-    @GET
-    @Path("/2.5/forecast")
-    ForecastResponse forecast(@QueryParam("lat") String lat,
-                              @QueryParam("lon") String lon,
-                              @QueryParam("appID") String appID,
-                              @QueryParam("units") String units,
-                              @QueryParam("lang") String lang);
 
 }

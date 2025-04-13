@@ -32,36 +32,17 @@ class WeatherOpenMapClientsTest {
     DataClient dataClient;
 
 
-
     @ConfigProperty(name ="openWeatherMap.apikey")
     String apiKey;
 
     @Test
     void testGeoDirectApi() {
-        try {
-            List<GeoDirectResponse> geoDirectResponses = geoClient.direct("London", 5, apiKey);
-            Assertions.assertNotNull(geoDirectResponses);
-            GeoDirectResponse firstResult = geoDirectResponses.getFirst();
-            Assertions.assertEquals("London", firstResult.getName());
-            Log.infof("Name: %s, lat: %s, lon: %s", firstResult.getName(), firstResult.getLat(), firstResult.getLon());
-        }
-        catch (ClientWebApplicationException e) {
-            e.printStackTrace();
-        }
+        List<GeoDirectResponse> geoDirectResponses = geoClient.direct("London", 5, apiKey);
+        Assertions.assertNotNull(geoDirectResponses);
+        GeoDirectResponse firstResult = geoDirectResponses.getFirst();
+        Assertions.assertEquals("London", firstResult.getName());
+        Log.infof("Name: %s, lat: %s, lon: %s", firstResult.getName(), firstResult.getLat(), firstResult.getLon());
     }
-
-    @Test
-    void testDataForecastApi() {
-        ForecastResponse forecast = dataClient.forecast("51.5073219", "-0.1276474", apiKey, null, null);
-        Assertions.assertNotNull(forecast);
-        try {
-            String forecastResponseAsString = new ObjectMapper().writeValueAsString(forecast);
-            Log.info(forecastResponseAsString);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
 
     @Test
     void testDataOneCallApi() {
