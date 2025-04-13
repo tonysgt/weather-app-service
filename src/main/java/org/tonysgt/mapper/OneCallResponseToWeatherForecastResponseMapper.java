@@ -14,6 +14,8 @@ import java.util.Optional;
 @ApplicationScoped
 public class OneCallResponseToWeatherForecastResponseMapper {
 
+    public static final String DEFAULT = "default";
+
     @Inject
     OpenWeatherMapConfig openWeatherMapConfig;
 
@@ -31,7 +33,7 @@ public class OneCallResponseToWeatherForecastResponseMapper {
 
             forecast.setPressure(daily.getPressure());
 
-            Optional.of(daily.getTemp()).ifPresent(temp -> {
+            Optional.ofNullable(daily.getTemp()).ifPresent(temp -> {
                 Temperature temperature = new Temperature();
                 temperature.setMin(temp.getMin());
                 temperature.setMax(temp.getMax());
@@ -39,21 +41,21 @@ public class OneCallResponseToWeatherForecastResponseMapper {
                 temperature.setDay(temp.getDay());
                 temperature.setEve(temp.getEve());
                 temperature.setNight(temp.getNight());
-                temperature.setUnits(UnitUtils.getTempUnits(openWeatherMapConfig.units().orElse("default")));
+                temperature.setUnits(UnitUtils.getTempUnits(openWeatherMapConfig.units().orElse(DEFAULT)));
                 forecast.setTemperature(temperature);
             });
 
-            Optional.of(daily.getFeelsLike()).ifPresent(feelsLike -> {
+            Optional.ofNullable(daily.getFeelsLike()).ifPresent(feelsLike -> {
                 PerceivedTemperature perceivedTemperature = new PerceivedTemperature();
                 perceivedTemperature.setMorn(feelsLike.getMorn());
                 perceivedTemperature.setDay(feelsLike.getDay());
                 perceivedTemperature.setEve(feelsLike.getEve());
                 perceivedTemperature.setNight(feelsLike.getNight());
-                perceivedTemperature.setUnits(UnitUtils.getTempUnits(openWeatherMapConfig.units().orElse("default")));
+                perceivedTemperature.setUnits(UnitUtils.getTempUnits(openWeatherMapConfig.units().orElse(DEFAULT)));
                 forecast.setPerceivedTemperature(perceivedTemperature);
             });
 
-            Optional.of(daily.getWeather()).ifPresent(weather -> {
+            Optional.ofNullable(daily.getWeather()).ifPresent(weather -> {
                 Weather weatherObject = new Weather();
                 weatherObject.setId(weatherObject.getId());
                 weatherObject.setMain(weatherObject.getMain());
@@ -62,7 +64,7 @@ public class OneCallResponseToWeatherForecastResponseMapper {
             });
 
             Wind wind = new Wind();
-            wind.setUnit(UnitUtils.getSpeedUnits(openWeatherMapConfig.units().orElse("default")));
+            wind.setUnit(UnitUtils.getSpeedUnits(openWeatherMapConfig.units().orElse(DEFAULT)));
             wind.setSpeed(daily.getWindSpeed());
             wind.setDeg(daily.getWindDeg());
             wind.setGust(daily.getWindGust());
