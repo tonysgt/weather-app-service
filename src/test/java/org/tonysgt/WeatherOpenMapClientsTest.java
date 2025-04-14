@@ -28,7 +28,6 @@ class WeatherOpenMapClientsTest {
     @RestClient
     DataClient dataClient;
 
-
     @ConfigProperty(name ="openWeatherMap.apikey")
     String apiKey;
 

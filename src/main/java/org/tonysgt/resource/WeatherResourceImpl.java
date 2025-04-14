@@ -8,7 +8,6 @@ import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.tonysgt.model.weather.SearchLocationResponse;
-import org.tonysgt.model.weather.forecast.DailyForecastResponse;
 import org.tonysgt.services.WeatherService;
 
 import java.util.List;
